@@ -1,0 +1,16 @@
+pkg load control
+
+# Definindo os coeficientes da função de transferência (exemplo)
+num = [1];
+den = [0.28, 0, -8.8];  # G(s) = 1 / (s^2 + 2s + 1);
+
+# Criando o sistema a partir da função de transferência
+sys = tf(num, den);
+t= linspace(0,10,1000);
+# (Plotando a resposta ao degrau
+step(sys,t);
+title('Resposta ao degrau do pêndulo invertido');
+xlabel('Tempo');
+ylabel('Θ');
+grid on;
+rlocus(sys)
